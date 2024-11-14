@@ -16,6 +16,7 @@ public enum TlsImplementationType {
     CRYPTO_COMPLY,
     CRYPTLIB,
     DAMNVULNERABLEOPENSSL,
+    ELL,
     FIREFOX,
     GNUTLS,
     JSSE,

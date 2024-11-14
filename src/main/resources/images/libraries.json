@@ -7,6 +7,7 @@
     "botan",
     "bouncycastle",
     "damnvulnerableopenssl",
+    "ell",
     "firefox",
     "gnutls",
     "go",

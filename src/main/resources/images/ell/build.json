@@ -1,0 +1,21 @@
+{
+  "build_groups": {
+    "ell": {
+      "name": "ell",
+      "dockerfile": "Dockerfile",
+      "versions": [
+        "1.0"
+      ],
+      "instances": [
+        "server"
+      ],
+      "image_version": "{v}",
+      "build_args": {
+        "VERSION": "v{v}"
+      },
+      "target": "ell-{i}",
+      "tag": "{r}{n}-{i}:{v}"
+    }
+  },
+  "latest": "master"
+}

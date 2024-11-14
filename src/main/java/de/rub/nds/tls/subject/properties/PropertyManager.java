@@ -196,6 +196,15 @@ public class PropertyManager {
         imagePropertyList.add(
                 new ImageProperties(
                         ConnectionRole.SERVER,
+                        TlsImplementationType.ELL,
+                        "1.0",
+                        1234,
+                        Const.CERT_KEY_PEM,
+                        Const.CERT_CERT_PEM,
+                        null));
+        imagePropertyList.add(
+                new ImageProperties(
+                        ConnectionRole.SERVER,
                         TlsImplementationType.GNUTLS,
                         "3.6.14",
                         5556,

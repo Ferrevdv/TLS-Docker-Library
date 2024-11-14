@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Clone the ELL repository at the specified version
-RUN git clone --depth=1 https://github.com/ell/ell.git /ell-source
+RUN git clone --depth=1 --branch 0.69 https://git.kernel.org/pub/scm/libs/ell/ell.git /ell-source
 
 # Build ELL from source
 WORKDIR /ell-source

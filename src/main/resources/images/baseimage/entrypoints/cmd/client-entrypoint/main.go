@@ -17,6 +17,7 @@ func main() {
 	if len(os.Args) > 1 {
 		go lib.ExecuteArgs()
 
+		// NOTE: entrypoint of the client images is a small HTTP server that provides two REST-API endpoints on port 8090.
 		http.HandleFunc("/trigger", trigger)
 		http.HandleFunc("/shutdown", lib.Shutdown)
 		fmt.Println("Listening on :8090...")

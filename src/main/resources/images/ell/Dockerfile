@@ -22,6 +22,7 @@ RUN ./bootstrap && ./configure --prefix=/usr && make && make install
 
 # Build example server
 RUN gcc -o examples/https-server-test examples/https-server-test.c -I/usr/include/ell -L/usr/lib -lell
+RUN gcc -o examples/https-client-test examples/https-client-test.c -I/usr/include/ell -L/usr/lib -lell
 
 # Stage 2: Runtime Image
 FROM entrypoint as ell-base2
@@ -36,3 +37,12 @@ LABEL "tls_implementation_version"="${VERSION}"
 LABEL "tls_implementation_connectionRole"="server"
 COPY --from=ell-base1 /ell-source/examples/https-server-test /bin/
 ENTRYPOINT ["server-entrypoint", "https-server-test"]
+
+
+
+FROM ell-runtime as ell-client
+LABEL "tls_implementation"="ell"
+LABEL "tls_implementation_version"="${VERSION}"
+LABEL "tls_implementation_connectionRole"="client"
+COPY --from=ell-base1 /ell-source/examples/https-client-test /bin/
+ENTRYPOINT ["client-entrypoint", "https-client-test"]

@@ -64,6 +64,13 @@ public class PropertyManager {
         imagePropertyList.add(
                 new ImageProperties(
                         ConnectionRole.CLIENT,
+                        TlsImplementationType.ELL,
+                        "0.73",
+                        Const.CA_CERT,
+                        false));
+        imagePropertyList.add(
+                new ImageProperties(
+                        ConnectionRole.CLIENT,
                         TlsImplementationType.FIREFOX,
                         "61.0.2",
                         Const.CA_CERT,
@@ -197,7 +204,7 @@ public class PropertyManager {
                 new ImageProperties(
                         ConnectionRole.SERVER,
                         TlsImplementationType.ELL,
-                        "1.0",
+                        "0.73",
                         1234,
                         Const.CERT_KEY_PEM,
                         Const.CERT_CERT_PEM,

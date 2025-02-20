@@ -4,9 +4,10 @@
       "name": "ell",
       "dockerfile": "Dockerfile",
       "versions": [
-        "1.0"
+        "0.73"
       ],
       "instances": [
+        "client",
         "server"
       ],
       "image_version": "{v}",
@@ -17,5 +18,5 @@
       "tag": "{r}{n}-{i}:{v}"
     }
   },
-  "latest": "master"
+  "latest": "0.73"
 }

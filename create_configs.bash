@@ -14,7 +14,7 @@ library=$1
 
 if [[ -z $1 ]]
 then
-    select inp in "openssl" "matrixssl" "libressl" "gnutls" "wolfssl" "boringssl" "botan" "mbedtls" "s2n" "bearssl" "rustls" "bouncycastle" "ocamltls" "nss";
+    select inp in "openssl" "matrixssl" "libressl" "gnutls" "wolfssl" "boringssl" "botan" "mbedtls" "s2n" "bearssl" "rustls" "bouncycastle" "ocamltls" "nss" "ell";
     do
         library=$inp;
         break;
@@ -83,6 +83,10 @@ case $library in
         ;;
     nss )
         nssdir="$serverscriptsdir/nss";
+        java -jar $fuzzer new-client -increment $inc -output $outputdir/mbedtlsclient -start "$mbedtlsdir/build/programs/ssl/ssl_client2 server_name=localhost server_port=[port]" -port 4444;
+        ;;
+    ell )
+        elldir="$serverscriptsdir/ell";
         java -jar $fuzzer new-client -increment $inc -output $outputdir/mbedtlsclient -start "$mbedtlsdir/build/programs/ssl/ssl_client2 server_name=localhost server_port=[port]" -port 4444;
         ;;
 esac
